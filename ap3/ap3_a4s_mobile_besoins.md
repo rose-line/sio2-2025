@@ -62,11 +62,26 @@ On souhaite pouvoir afficher dans l'application la liste de tous les produits de
 - désignation produit ;
 - quantité en stock.
 
+### Module 7 - Mode déconnecté
+
+_Priorité : 3_
+
+L'application doit être capable de fonctionner en mode déconnecté, c'est-à-dire sans connexion réseau. Les données saisies par les caristes en mode déconnecté devront être synchronisées avec le serveur web dès que la connexion sera rétablie. *Pour ce module*, vous devrez proposer une solution de persistance des données en local.
+
+## Contraintes fonctionnelles
+
+- L'application doit être ergonomique et intuitive pour les caristes, qui ne sont pas nécessairement des utilisateurs experts en informatique.
+- L'application doit être réactive et rapide, pour permettre aux caristes de travailler efficacement.
+
+- L'application doit être sécurisée, pour garantir la confidentialité des données des clients de ALL4SPORT.
+- L'application doit être maintenable, pour permettre d'ajouter de nouveaux modules ou de corriger des bugs facilement.
+- L'application doit être testable, pour garantir la qualité du logiciel avant sa mise en production.
+
 ## Contraintes techniques
 
 - La technologie de développement mobile est libre
-- L'utilisation d'un SGBD en local n'est pas souhaitée
-- La persistence des données est assurée par un serveur web qui sera l'objet d'un autre projet
+- L'utilisation d'un SGBD en local n'est pas souhaitée (exception éventuelle : module 7)
+- La persistence des données est assurée par un serveur web qui sera l'objet d'un autre projet (exception : module 7)
 - Les échanges de données entre l'app mobile et le serveur se font grâce à une API de type REST
 - Le format JSON doit être utilisé pour l'échange des données, que ce soit :
   - les données récupérées depuis l'API REST par l'app mobile
