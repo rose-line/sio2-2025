@@ -1,0 +1,243 @@
+= Tests unitaires
+
+:last-update-label!:
+
+== Les tests d'une application
+
+Il existe différents types de tests pour une application. Parmi eux :
+
+* *Les tests unitaires* : ils permettent de tester une unité de code simple -- une *méthode* -- de manière isolée
+* *Les tests d'intégration* (un niveau au-dessus) : ils permettent de tester l'*interaction entre les classes et les composants* de l'application
+* *Les tests fonctionnels* (encore un niveau au-dessus) : ils permettent de tester le bon fonctionnement d'une *fonctionnalité spécifique* de l'application.
+
+On peut citer d'autres types de tests : tests de performance, tests de sécurité, tests de charge, etc. mais les trois types précédents sont liés directement à l'aspect développement de l'aspect purement fonctionnel de l'application.
+
+Nous allons ici nous intéresser spécifiquement aux tests unitaires.
+
+== Les tests unitaires
+
+Les *tests unitaires (_unit tests_)* permettent de vérifier le bon fonctionnement d'une _unité de code_. En POO, il s'agit tout simplement d'une méthode. L'idée est de valider le fait que la méthode fasse ce qu'elle est censée faire et renvoie ce qu'elle est censée renvoyer, et ce *quelles que soient l'état du système au moment du test*. L'état du système est défini par les variables d'instances des objets utilisés et les entrées (paramètres) de la méthode.
+
+Les tests unitaires sont écrits par les développeurs eux-mêmes, et sont exécutés automatiquement à chaque modification du code source (dans l'idéal). Ils ont plusieurs avantages :
+
+* *S'assurer* que les modifications apportées tout récemment n'ont pas introduit de *régressions* (c'est-à-dire de nouveaux bugs).
+* *Documenter le code* : en fin de compte les tests d'une méthode décrivent comment le code associé se comporte. Ils documentent la méthode en indiquant aux développeurs comment utiliser la méthode en décrivant les cas d'utilisation.
+* *Faciliter la maintenance du code* : car un bug introduit par une modification dans une méthode existante est immédiatement détecté.
+* *Faciliter la refactorisation* : refactorisation = modification du code sans changer le comportement. Si on a des tests qui valident le comportement d'une méthode, on peut la refactoriser sans crainte de la « casser ».
+
+Ils ont aussi des inconvénients :
+
+* Ils prennent du *temps à écrire* : cet inconvénient est largement compensé par le gain en temps fourni par les avantages précédemment cités.
+* Ils faut les *maintenir* : chaque test est un morceau de code qui doit être maintenu, au même titre que le code fonctionnel. Si le code testé évolue, il faut aussi faire évoluer les tests. Parfois des classes entières sont réécrites, voire même supprimées : des centaines de lignes de tests peuvent devenir obsolètes rapidement. C'est le principal frein à la démocratisation de cette pratique dans de nombreuses organisations.
+
+Dans l'ensemble, les tests unitaires sont largement reconnus comme un bon moyen de garantir la qualité du code et de faciliter le développement logiciel. Ils sont une composante essentielle des méthodes de développement agiles et du *développement piloté par les tests (_Test-Driven Development_)*.
+
+== Le framework JUnit
+
+=== Présentation
+
+JUnit est un framework de tests unitaires populaire pour Java. Il permet d'écrire des tests unitaires de manière simple et efficace. Lorsque vous créer un projet avec Maven qui intègre JUnit, vous avez déjà les dépendances nécessaires pour écrire et exécuter des tests unitaires. Les classes de test sont situées dans le même package que les classes testées, mais dans un répertoire `test` (par convention).
+
+=== Exemple
+
+Voici un exemple de tests unitaires simples écrits en Java avec le framework JUnit :
+
+[source,java]
+----
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+// La classe de test doit être publique et porter le même nom que la classe testée, avec le suffixe "Test"
+// Ici, la classe testée est Calculator, donc la classe de test est CalculatorTest
+// La classe Calculator fournit des méthodes publiques pour effectuer des opérations arithmétiques simples
+// (add, subtract, multiply, divide)
+// Ce sont ces méthodes publiques qui sont testées ici
+public class CalculatorTest {
+
+    // L'annotation @Test indique à JUnit que la méthode suivante est un test unitaire
+    @Test
+    public void testAdd() {
+        Calculator calculator = new Calculator();
+        // assertEquals est une méthode de JUnit qui permet de vérifier qu'un résultat obtenu
+        // en appelant la méthode testée est égal au résultat attendu
+        assertEquals(5, calculator.add(2, 3));
+    }
+
+    @Test
+    public void testSubtract() {
+        Calculator calculator = new Calculator();
+        assertEquals(1, calculator.subtract(4, 3));
+    }
+
+    @Test
+    public void testMultiply() {
+        Calculator calculator = new Calculator();
+        assertEquals(6, calculator.multiply(2, 3));
+    }
+
+    @Test
+    public void testDivide() {
+        Calculator calculator = new Calculator();
+        assertEquals(2, calculator.divide(6, 3));
+    }
+}
+----
+
+Dans cet exemple, on teste les méthodes `add`, `subtract`, `multiply` et `divide` de la classe `Calculator`. Pour chaque méthode, on crée une instance de `Calculator`, on appelle la méthode à tester avec des paramètres donnés, et on vérifie que le résultat est celui attendu à l'aide de la méthode `assertEquals`.
+
+=== Autres méthodes de JUnit
+
+JUnit fournit de nombreuses autres méthodes pour effectuer des assertions dans les tests unitaires. Voici quelques exemples :
+
+* `assertTrue(boolean condition)` : vérifie que la condition est vraie.
+* `assertFalse(boolean condition)` : vérifie que la condition est fausse.
+* `assertNull(Object object)` : vérifie que l'objet est `null`.
+* `assertNotNull(Object object)` : vérifie que l'objet n'est pas `null`.
+* `assertSame(Object expected, Object actual)` : vérifie que les deux objets sont les mêmes (c'est-à-dire qu'ils référencent le même objet en mémoire).
+* `assertNotSame(Object expected, Object actual)` : vérifie que les deux objets ne sont pas les mêmes.
+
+=== Mise en place et nettoyage des tests
+
+JUnit5 expose des annotations Java pour définir des méthodes qui gèrent le cycle de vie des tests unitaires.
+
+Les annotations `@BeforeAll` et `@AfterAll` permettent de définir des méthodes qui -- comme leur nom l'indique -- seront exécutées une seule fois dans tout le cycle d'exécution des tests. On les utilise pour mettre en place un environnement de test commun à plusieurs tests (`@BeforeAll`) et pour nettoyer cet environnement après tous les tests (`@AfterAll`). Ces méthodes doivent donc être déclarées statiques.
+
+Les annotations `@BeforeEach` et `@AfterEach` sont pour les méthodes qui doivent être invoquées pour chaque instance de test. Elles permettent de mettre en place un environnement de test spécifique à chaque test (`@BeforeEach`) et de le nettoyer après chaque test (`@AfterEach`). Ces méthodes ne doivent pas être statiques.
+
+Voici une illustration de l'utilisation de ces méthodes :
+
+[source,java]
+----
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+
+public class CalculatorTest {
+
+  private Calculator calculator;
+
+	@BeforeAll
+	static void setup(){
+		System.out.println("@BeforeAll exécutée");
+	}
+
+	@BeforeEach
+	void setupThis(){
+    calculator = new Calculator();
+		System.out.println("@BeforeEach exécutée");
+	}
+
+	@Test
+    void testAdd()
+	{
+	  System.out.println("======TEST ADD=======");
+	  Assertions.assertEquals(5, calculator.add(2, 3));
+    }
+
+    @Test
+    void testSubstract()
+   {
+		System.out.println("======TEST SUBSTRACT=======");
+		Assertions.assertEquals(2, calculator.substract(6, 4));
+    }
+
+	@AfterEach
+	void tearThis(){
+		System.out.println("@AfterEach exécutée");
+	}
+
+	@AfterAll
+	static void tear(){
+		System.out.println("@AfterAll exécutée");
+	}
+}
+----
+
+L'exécution des tests produit la sortie suivante qui montre l'ordre d'exécution :
+
+[source]
+----
+@BeforeAll exécutée
+
+@BeforeEach exécutée
+======TEST SUBSTRACT=======
+@AfterEach exécutée
+
+@BeforeEach exécutée
+======TEST ADD=======
+@AfterEach exécutée
+
+@AfterAll exécutée
+----
+
+Notez que la méthode `setupThis` est exécutée avant chaque test et réinitialise à chaque fois une nouvelle instance de `Calculator`. Cela permet de s'assurer que chaque test part d'un environnement propre et isolé, et que les _effets de bord_ d'un test ne se répercutent pas sur les tests suivants.
+
+=== Exécution des tests sous VS Code
+
+Sous VS Code, pour exécuter les tests unitaires, il suffit de cliquer sur le bouton `Run Test` qui apparaît à côté de chaque test dans le _panel_ `Test`. Cela exécute le test et affiche le résultat dans la fenêtre de sortie. On a du vert pour les tests qui passent et du rouge pour les tests qui échouent.
+
+== Méthode AAA : Arrange, Act, Assert
+
+La méthode AAA est une méthode de structuration des tests unitaires qui permet de les rendre plus lisibles et plus faciles à comprendre. Elle consiste à diviser le test en trois parties :
+
+- **Arrange** : on prépare les données nécessaires pour le test (création d'objets, initialisation de variables, etc.).
+- **Act** : on exécute la méthode à tester avec les données préparées.
+- **Assert** : on vérifie que le résultat obtenu est celui attendu.
+
+Voici la réécriture d'un test précédent qui suit la méthode AAA :
+
+[source,java]
+----
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CalculatorTest {
+
+    @Test
+    public void testAdd() {
+        // Arrange (Arranger)
+        Calculator calculator = new Calculator();
+
+        // Act (Agir)
+        int result = calculator.add(2, 3);
+
+        // Assert (vérifier)
+        assertEquals(5, result);
+    }
+}
+----
+
+On divise clairement les trois parties du test en utilisant des commentaires pour indiquer où commence et où se termine chaque partie. Cela permet de structurer le test et de l'écrire plus facilement.
+
+Dans la partie **Arrange**, on met en place les objets et les données nécessaires pour le test. Dans la partie **Act**, on exécute la *méthode sous test (_Unit under Test_)* avec les données préparées. Dans la partie **Assert**, on vérifie que le résultat obtenu suite à l'appel de la méthode sous test est celui attendu.
+
+Pour tester les différents comportements d'une méthode (cas nominal, cas limite, cas d'erreur, etc.), on peut écrire plusieurs tests unitaires pour cette méthode, chacun testant un aspect particulier du comportement de la méthode en fonction des paramètres et de l'état du système.
+
+== TP API de gestion de parking privé (Java)
+
+Vous devez écrire une application de gestion d'un parking privé. On ne s'occupera ici que de l'API métier. On a retenu les contraintes et besoins suivants avec le client pour la première itération du projet :
+
+* L'application doit garder trace des immatriculations de l'ensemble des véhicules autorisés à stationner sur le parking privé.
+* Il faut aussi savoir, à tout moment, quelles sont les immatriculations des véhicules actuellement sur le parking.
+* Il n'y pas de limite au nombre de véhicules autorisés à stationner sur le parking.
+* Cependant, il y a bien entendu une capacité maximale pour le parking, qui est donnée.
+* Au lancement, la liste des immatriculations autorisées doit être vide.
+* La liste des véhicules actuellement sur le parking aussi.
+* On doit pouvoir ajouter l'immatriculation d'un véhicule à la liste des immatriculations autorisées (doublons interdits).
+* On doit pouvoir enregistrer l'entrée d'un véhicule, identifié par son immatriculation, sur le parking.
+* On doit pouvoir enregistrer la sortie d'un véhicule (toujours identifié par son immatriculation).
+* On doit pouvoir savoir si un véhicule donné est sur le parking ou pas.
+* On doit pouvoir savoir si le parking est plein ou pas.
+* On doit pouvoir connaître le nombre de véhicules actuellement sur le parking.
+* On doit pouvoir afficher la liste des véhicules actuellement sur le parking.
+* On doit pouvoir afficher la liste des véhicules autorisés.
+* On doit pouvoir afficher le taux de remplissage actuel du parking.
+
+L'ensemble des opérations se fera en mémoire (pas de persistance en BDD).
+
+On testera cette API de manière systématique et automatisée à l'aide du framework de test JUnit5.
+
+Dans un second temps, on passera en mode TDD (*Test-Driven Development* : développement piloté par les tests). En TDD, on écrit les tests *avant* d'implémenter quoi que ce soit de fonctionnel : on n'écrit aucun nouveau code tant qu'un test ne met pas en évidence sa nécessité.

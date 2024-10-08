@@ -11,7 +11,7 @@
 
 ## Bloc 3 SLAM
 
-...
+- Tests unitaires : [Cours et TP](b3/unit-testing-parking.md)
 
 ## Atelier Professionnel SLAM
 
