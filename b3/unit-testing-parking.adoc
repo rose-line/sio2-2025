@@ -1,4 +1,4 @@
-= Tests unitaires
+= Les tests unitaires
 
 :last-update-label!:
 
@@ -216,7 +216,20 @@ Dans la partie **Arrange**, on met en place les objets et les données nécessai
 
 Pour tester les différents comportements d'une méthode (cas nominal, cas limite, cas d'erreur, etc.), on peut écrire plusieurs tests unitaires pour cette méthode, chacun testant un aspect particulier du comportement de la méthode en fonction des paramètres et de l'état du système.
 
-== TP API de gestion de parking privé (Java)
+== TDD (Test-Driven Development)
+
+Le *développement piloté par les tests (_Test-Driven Development_)* est une méthode de développement logiciel qui consiste à écrire les tests unitaires avant d'écrire le code fonctionnel. Le cycle de développement est le suivant :
+
+1. Écrire un test unitaire qui décrit un comportement attendu d'une méthode.
+2. Exécuter le test : *il doit échouer* car la méthode n'est pas encore implémentée.
+3. Implémenter le *minimum de code* nécessaire pour que le test passe.
+4. Exécuter à nouveau le test : il doit passer, sinon retourner à l'étape 3.
+
+Le but du TDD est de garantir que le code écrit est testé et fonctionne correctement. Il permet de se concentrer sur les besoins de l'application et de s'assurer que le code écrit répond à ces besoins. Il permet aussi de détecter rapidement les erreurs et les bugs, car chaque modification du code est validée par les tests unitaires.
+
+Le TDD est une pratique qui peut être difficile à mettre en œuvre au début, car elle demande de changer sa manière de penser et de travailler. Cependant, une fois qu'on a pris l'habitude d'écrire les tests avant le code, cela peut permettre de gagner du temps et de produire un code de meilleure qualité.
+
+== TP : API de gestion de parking privé (Java)
 
 Vous devez écrire une application de gestion d'un parking privé. On ne s'occupera ici que de l'API métier. On a retenu les contraintes et besoins suivants avec le client pour la première itération du projet :
 
@@ -224,8 +237,7 @@ Vous devez écrire une application de gestion d'un parking privé. On ne s'occup
 * Il faut aussi savoir, à tout moment, quelles sont les immatriculations des véhicules actuellement sur le parking.
 * Il n'y pas de limite au nombre de véhicules autorisés à stationner sur le parking.
 * Cependant, il y a bien entendu une capacité maximale pour le parking, qui est donnée.
-* Au lancement, la liste des immatriculations autorisées doit être vide.
-* La liste des véhicules actuellement sur le parking aussi.
+* Au lancement, aucun véhicule n'est autorisé, et le parking est vide.
 * On doit pouvoir ajouter l'immatriculation d'un véhicule à la liste des immatriculations autorisées (doublons interdits).
 * On doit pouvoir enregistrer l'entrée d'un véhicule, identifié par son immatriculation, sur le parking.
 * On doit pouvoir enregistrer la sortie d'un véhicule (toujours identifié par son immatriculation).
@@ -236,8 +248,12 @@ Vous devez écrire une application de gestion d'un parking privé. On ne s'occup
 * On doit pouvoir afficher la liste des véhicules autorisés.
 * On doit pouvoir afficher le taux de remplissage actuel du parking.
 
-L'ensemble des opérations se fera en mémoire (pas de persistance en BDD).
+Contraintes :
 
-On testera cette API de manière systématique et automatisée à l'aide du framework de test JUnit5.
+* L'ensemble des opérations se fera en mémoire (pas de persistance en BDD).
+* On testera cette API de manière systématique et automatisée à l'aide du framework de test JUnit5.
+* On implémentera les fonctionnalités dans l'ordre qui semble adéquat, mais en tout cas une par une
+* On ne passe pas à une fonctionnalité suivante tant que les méthodes correspondantes ne sont pas intégralement testées
+* On utilisera la méthode AAA pour structurer les tests.
 
-Dans un second temps, on passera en mode TDD (*Test-Driven Development* : développement piloté par les tests). En TDD, on écrit les tests *avant* d'implémenter quoi que ce soit de fonctionnel : on n'écrit aucun nouveau code tant qu'un test ne met pas en évidence sa nécessité.
+Dans un second temps, lorsque le principe des tests unitaires est bien assimilé, on pourra s'essayer au développement piloté par les tests. Rappelez-vous alors qu'on écrit les tests *avant* d'implémenter quoi que ce soit de fonctionnel : on n'écrit aucun nouveau code tant qu'un test ne met pas en évidence sa nécessité.
