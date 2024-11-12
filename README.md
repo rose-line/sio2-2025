@@ -12,6 +12,7 @@
 ## Bloc 3 SLAM
 
 - Tests unitaires : [Cours et TP](b3/unit-testing-parking.adoc)
+- Cours Injections SQL - [Partie 1](b3/sql_injection_part1.adoc)
 
 ## Atelier Professionnel SLAM
 
