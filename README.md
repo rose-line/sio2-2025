@@ -2,17 +2,18 @@
 
 ## Bloc 1
 
-...
+- Gestion de projet
+- Introduction au framework Scrum
 
 ## Bloc 2 SLAM
 
 - Conception et Programmation Orientées Objets - Concepts fondamentaux : [TP Guerre Marine](https://github.com/rose-line/sio2025-tp-guerre-marine)
-- Cours Flutter
+- Dart & Flutter : [Cours](b2/flutter.pdf)
 
 ## Bloc 3 SLAM
 
 - Tests unitaires : [Cours et TP](b3/unit-testing-parking.adoc)
-- Cours Injections SQL - [Partie 1](b3/sql_injection_part1.adoc)
+- Injections SQL : [Cours - Partie 1](b3/sql_injection_part1.pdf)
 
 ## Atelier Professionnel SLAM
 
