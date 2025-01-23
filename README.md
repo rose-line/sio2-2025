@@ -8,6 +8,7 @@
 ## Bloc 2 SLAM
 
 - Conception et Programmation Orientées Objets - Concepts fondamentaux : [TP Guerre Marine](https://github.com/rose-line/sio2025-tp-guerre-marine)
+  - [lien pour le rendu](https://classroom.github.com/a/_O5-Zinf)
 - Dart & Flutter : [Cours](b2/flutter.pdf)
 - [Les sockets](b2/sockets.md) : communication bas niveau entre machines
 
