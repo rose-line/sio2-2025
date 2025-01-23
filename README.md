@@ -9,6 +9,7 @@
 
 - Conception et Programmation Orientées Objets - Concepts fondamentaux : [TP Guerre Marine](https://github.com/rose-line/sio2025-tp-guerre-marine)
 - Dart & Flutter : [Cours](b2/flutter.pdf)
+- [Les sockets](b2/sockets.md) : communication bas niveau entre machines
 
 ## Bloc 3 SLAM
 
