@@ -12,6 +12,7 @@
   - [lien pour le rendu](https://classroom.github.com/a/_O5-Zinf)
   - [proposition de corrigé](https://github.com/rose-line/guerre-marine-corr)
 - [Les sockets](b2/sockets.md) : communication bas niveau entre machines
+  - [lien pour le rendu](https://classroom.github.com/a/dWFVo2tC)
 
 ## Bloc 3 SLAM
 
