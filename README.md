@@ -4,6 +4,7 @@
 
 - Gestion de projet
 - Introduction au framework Scrum
+- [Introduction à Docker](b1/docker/README.adoc)
 
 ## Bloc 2 SLAM
 
