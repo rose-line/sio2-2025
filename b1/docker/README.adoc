@@ -25,3 +25,7 @@ Les conteneurs partagent le noyau du système d'exploitation hôte et ne contien
 *** https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/topics/#virtualization
 *** https://learn.microsoft.com/en-us/windows/wsl/install
 
+=== Commandes de base
+
+* Cours : démo des commandes
+* [Invit TP GitHub Classroom](https://classroom.github.com/a/AX9cbgy4)
