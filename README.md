@@ -22,7 +22,8 @@
 - Tests unitaires : [Cours et TP](b3/unit-testing-parking.adoc)
 - Injections SQL : [Cours)](b3/sql_injections.pdf)
 - Attaques XSS : [Cours](attaques_xss.pdf)
-- Attaques par injection de commandes : [Cours à venir]()
+- Attaques par injection de commandes : [Cours](b3/injection_de_commandes.pdf)
+- Attaques CSRF : [Cours](b3/attaques_csrf.pdf)
 
 ## Atelier Professionnel SLAM
 
