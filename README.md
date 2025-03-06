@@ -14,6 +14,8 @@
   - [proposition de corrigé](https://github.com/rose-line/guerre-marine-corr)
 - [Les sockets](b2/sockets.md) : communication bas niveau entre machines
   - [lien pour le rendu](https://classroom.github.com/a/dWFVo2tC)
+- TP Bestioles : héritage, polymorphisme
+  - [lien GHC TP](https://classroom.github.com/a/vNqa01N3)
 
 ## Bloc 3 SLAM
 
