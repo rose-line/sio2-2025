@@ -1,3 +1,5 @@
+:last-update-label!:
+
 == Docker
 
 === Introduction
@@ -10,13 +12,13 @@ Docker est une plateforme ouverte pour développeurs et administrateurs système
 
 Docker est une technologie de *conteneurisation* qui permet de créer des conteneurs légers et portables pour les applications logicielles. Les *conteneurs* sont des environnements isolés qui contiennent tout ce dont une application a besoin pour fonctionner, y compris le code, les bibliothèques, les outils et les fichiers système.
 
-Les *machines virtuelles* (VM) sont des environnements d'exécution isolés qui contiennent un système d'exploitation complet. Les VMs sont plus lourdes que les conteneurs car elles contiennent un système d'exploitation complet.
+Les *machines virtuelles* (VM) sont des environnements d'exécution isolés qui contiennent un système d'exploitation complet. De ce fait, les VMs sont plus beaucoup plus lourdes que les conteneurs.
 
 Les conteneurs partagent le noyau du système d'exploitation hôte et ne contiennent que les éléments nécessaires à l'exécution de l'application containeurisée. Cela implique que les conteneurs sont plus légers que les VMs et peuvent être démarrés plus rapidement. Cela implique aussi que les conteneurs sont moins isolés que les VMs.
 
 === Installation
 
-* [Docker Desktop pour Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+* https://docs.docker.com/desktop/setup/install/windows-install/[Docker Desktop pour Windows]
 ** lors de d'installation, assurez-vous d'utiliser WSL2 et non Hyper-V
 * L'installation va automatiquement activer/installer certaines fonctionnalités Windows requises
 * En cas de problème, vérifiez :
@@ -28,4 +30,8 @@ Les conteneurs partagent le noyau du système d'exploitation hôte et ne contien
 === Commandes de base
 
 * Cours : démo des commandes
-* [Invit TP GitHub Classroom](https://classroom.github.com/a/AX9cbgy4)
+* Invit TP : https://classroom.github.com/a/AX9cbgy4[GitHub Classroom]
+
+=== Fonctionnement des conteneurs
+
+* Invit cours et TP : https://classroom.github.com/a/C4wg-zy1[GitHub Classroom]
