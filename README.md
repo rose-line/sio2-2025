@@ -24,6 +24,7 @@
 - Attaques XSS : [Cours](attaques_xss.pdf)
 - Attaques par injection de commandes : [Cours](b3/injection_de_commandes.pdf)
 - Attaques CSRF : [Cours](b3/attaques_csrf.pdf)
+- Étude de cas Mars 2023 (Zoo) : [Sujet](b3/EDC-SIO2-202503-Zoo.pdf)
 
 ## Atelier Professionnel SLAM
 
