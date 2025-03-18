@@ -27,11 +27,15 @@ Les conteneurs partagent le noyau du système d'exploitation hôte et ne contien
 *** https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/topics/#virtualization
 *** https://learn.microsoft.com/en-us/windows/wsl/install
 
-=== Commandes de base
+=== Docker 01 - Commandes de base
 
 * Cours : démo des commandes
 * Invit TP : https://classroom.github.com/a/AX9cbgy4[GitHub Classroom]
 
-=== Fonctionnement des conteneurs
+=== Docker 02 - Fonctionnement des conteneurs
 
 * Invit cours et TP : https://classroom.github.com/a/ONnUHQsQ[GitHub Classroom]
+
+=== Docker 03 - Images Docker
+
+* Invit cours et TP : https://classroom.github.com/a/rFPEwdWD[GitHub Classroom]
