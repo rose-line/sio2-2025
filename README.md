@@ -16,6 +16,8 @@
   - [lien pour le rendu](https://classroom.github.com/a/dWFVo2tC)
 - TP Bestioles : héritage, polymorphisme
   - [lien GHC TP](https://classroom.github.com/a/vNqa01N3)
+- TP Lecteur de formes
+  - [lien GHC TP](https://classroom.github.com/a/8s1pTaEs)
 
 ## Bloc 3 SLAM
 
