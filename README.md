@@ -9,6 +9,7 @@
 ## Bloc 2 SLAM
 
 - Dart & Flutter : [Cours](b2/flutter.pdf)
+  - [Install Flutter](b2/flutter_install.pdf)
 - Conception et Programmation Orientées Objets - Concepts fondamentaux : [TP Guerre Marine](https://github.com/rose-line/sio2025-tp-guerre-marine)
   - [lien pour le rendu](https://classroom.github.com/a/_O5-Zinf)
   - [proposition de corrigé](https://github.com/rose-line/guerre-marine-corr)
