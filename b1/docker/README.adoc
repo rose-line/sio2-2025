@@ -39,3 +39,7 @@ Les conteneurs partagent le noyau du système d'exploitation hôte et ne contien
 === Docker 03 - Images Docker
 
 * Invit cours et TP : https://classroom.github.com/a/rFPEwdWD[GitHub Classroom]
+
+=== Docker 04 - Docker Compose
+
+* Invit cours et TP : https://classroom.github.com/a/qRMTAzTt[GitHub Classroom]
